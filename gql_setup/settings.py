@@ -27,7 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -38,8 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'graphene_django',
+    'users',
     'petitions',
-    'signers',
+    'people',
 ]
 
 MIDDLEWARE = [
@@ -72,6 +72,12 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'gql_setup.wsgi.application'
 
+
+AUTH_USER_MODEL = 'users.User'
+
+GRAPHENE = {
+    'SCHEMA': 'gql_setup.schema.schema'
+}
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
