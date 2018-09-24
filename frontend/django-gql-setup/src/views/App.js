@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Routes } from "./routes";
 import Typography from '@material-ui/core/Typography';
 
-import Grid from '@material-ui/core/Grid';
 
 
 class App extends Component {

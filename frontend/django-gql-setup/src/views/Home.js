@@ -2,23 +2,11 @@ import React, { Component } from "react";
 import { Query }  from "react-apollo";
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import { withStyles } from '@material-ui/core/styles';
-import PropTypes from 'prop-types';
 import gql from "graphql-tag";
 import {Loading, Error} from './helpers';
 import Typography from '@material-ui/core/Typography';
+import { withRouter } from "react-router-dom";
 
-const styles = theme => ({
-  root: {
-    flexGrow: 1,
-  },
-
-  paper: {
-    padding: theme.spacing.unit * 2,
-    color: theme.palette.text.secondary,
-  },
-
-});
 
 const GET_PETITIONS = gql`
   {
@@ -33,15 +21,14 @@ const GET_PETITIONS = gql`
   }
 `;
 
-function Home(props) {
-    const { classes } = props;
-
-    return(
-      <div className={classes.root}>
+class Home extends Component {
+  render(){
+    return (
+      <div>
       <Grid container spacing={24} justify="center">
       <Grid item xs={6} sm={3}>
 
-      <Paper className={classes.paper}>
+      <Paper elevation={1} className="pad">
 
         <Typography variant="display1" gutterBottom>
            Select a petition!
@@ -79,11 +66,9 @@ function Home(props) {
   </Grid>
 </div>
     )
-
+  }
 }
 
-Home.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
 
-export default withStyles(styles)(Home);
+
+export default withRouter(Home);
