@@ -2,3 +2,6 @@
 *.DS_Store
 venv/
 .env
+frontend/django-gql-setup/node_modules/*
+frontend/django-gql-setup/package-lock.json
+frontend/django-gql-setup/yarn.lock

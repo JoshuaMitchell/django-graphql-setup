@@ -1,0 +1,25 @@
+body {
+  background-color: #ecf0f1;
+  font-family: 'Roboto', sans-serif;
+  padding-bottom: 150px;
+  margin: 0px !important;
+}
+
+header,footer {
+  text-align:center;
+}
+main {
+  padding-bottom: 50px;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+  margin-bottom: 30px;
+}
+a:hover,
+a:focus,
+a:active {
+  text-decoration: none;
+  cursor: pointer;
+}
