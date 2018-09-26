@@ -19,7 +19,9 @@ import graphene
 # schema = graphene.Schema(query=Query, mutation=Mutation)
 
 import users.schema.relay_user_query
+import users.schema.relay_user_mutation
 import petitions.schema.relay_petition_query
+import petitions.schema.relay_petition_mutation
 import people.schema.relay_people_query
 import people.schema.relay_people_mutation
 
@@ -28,9 +30,12 @@ class Query(
     petitions.schema.relay_petition_query.Query,
     people.schema.relay_people_query.Query,
     graphene.ObjectType):
+    node = graphene.relay.Node.Field()
     pass
 
 class Mutation(
+    users.schema.relay_user_mutation.Mutation,
+    petitions.schema.relay_petition_mutation.Mutation,
     people.schema.relay_people_mutation.Mutation,
     graphene.ObjectType):
     pass

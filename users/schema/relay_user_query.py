@@ -2,6 +2,7 @@ import graphene
 from graphene_django import DjangoObjectType
 from graphene_django.filter import DjangoFilterConnectionField
 from users.models import User
+from graphql_jwt.decorators import login_required
 
 
 class UserNode(DjangoObjectType):
@@ -19,3 +20,8 @@ class UserNode(DjangoObjectType):
 class Query(graphene.ObjectType):
     user = graphene.relay.Node.Field(UserNode)
     all_users = DjangoFilterConnectionField(UserNode)
+    me = graphene.Field(UserNode)
+
+    @login_required
+    def resolve_me(self, info, **kwargs):
+        return info.context.user

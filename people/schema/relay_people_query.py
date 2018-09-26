@@ -3,7 +3,6 @@ from graphene_django import DjangoObjectType
 from graphene_django.filter import DjangoFilterConnectionField
 from people.models import Person
 
-
 class PersonNode(DjangoObjectType):
     class Meta:
         model = Person

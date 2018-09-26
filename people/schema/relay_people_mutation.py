@@ -1,10 +1,10 @@
 import graphene
-from graphene_django import DjangoObjectType
 from graphql_relay.node.node import from_global_id
 from people.models import Person
 from petitions.models import Petition
 from people.schema.relay_people_query import PersonNode
 from petitions.schema.relay_petition_query import PetitionNode
+
 class CreatePerson(graphene.Mutation):
     class Arguments:
         first_name = graphene.String()
